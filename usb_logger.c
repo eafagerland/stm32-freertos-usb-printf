@@ -3,6 +3,8 @@
  *  Author: Erik Fagerland
  *  Created On: 01/06/2024
  * 
+ *  https://github.com/eafagerland/stm32-freertos-usb-printf
+ * 
  *  # STM32 FreeRTOS USB Logger
  *  
  *  Enables printf() to write on the USB port of your STM32 board.
@@ -37,8 +39,8 @@
 
 // Private defines
 #define USB_TASK_PRIORITY           (1U)
-#define USB_TASK_STACK_SIZE         (1000UL)
-#define USB_LOG_QUEUE_MAX           (5U)
+#define USB_TASK_STACK_SIZE         (300UL)
+#define USB_LOG_QUEUE_MAX           (15U)
 #define USB_TX_BUFFER_MAX_SIZE      (64UL)
 #define USB_TIMEOUT_MS              (5000UL)
 #define USB_TIMEOUT_RETRY_INTERVAL  (5000UL)

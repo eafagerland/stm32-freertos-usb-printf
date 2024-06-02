@@ -3,6 +3,8 @@
  *  Author: Erik Fagerland
  *  Created On: 01/06/2024
  * 
+ *  https://github.com/eafagerland/stm32-freertos-usb-printf
+ * 
  *  # STM32 FreeRTOS USB Logger
  *  
  *  Enables printf() to write on the USB port of your STM32 board.
