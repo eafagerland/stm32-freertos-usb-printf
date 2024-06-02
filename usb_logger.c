@@ -88,7 +88,7 @@ int _write(int file, char *ptr, int len)
     memcpy(data.tx_buffer, ptr, len);
     data.tx_len = len;
 
-    BaseType_t status = xQueueSend(usb_queue_handle, &data, 0);
+    BaseType_t status = xQueueSendToBack(usb_queue_handle, &data, 0);
 
     if (status == pdPASS)
     {
@@ -129,6 +129,7 @@ static void usb_logger_task(void *pvParameters)
             {
                 rc = CDC_Transmit_FS(queued_data.tx_buffer, queued_data.tx_len);
             } while (rc == USBD_BUSY && is_usb_timeout == pdFALSE);
+            xTimerStop(timeout_timer, 0);
         }
 
         // If a timeout occured on USB write it will wait and try again after retry value
